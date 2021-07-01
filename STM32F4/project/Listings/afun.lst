@@ -1,0 +1,190 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 0000000A 
+                       DECIMAL_BASE
+                               EQU              0x0A
+    2 00000000 FFFFFFFF 
+                       REVERSE EQU              0xFFFFFFFF
+    3 00000000 80000000 
+                       HIGH_BIT
+                               EQU              0x80000000
+    4 00000000         
+    5 00000000         
+    6 00000000                 AREA             FUNCTION, CODE, ALIGN=4
+    7 00000000                 EXPORT           BIN_CHAR
+    8 00000000                 EXPORT           FUNC_Z
+    9 00000000         
+   10 00000000         BIN_CHAR
+                               PROC
+   11 00000000         
+   12 00000000 E92D 1C60       PUSH             {R5-R6, R10-R12}
+   13 00000004         
+   14 00000004 F04F 0A20       MOV              R10, #0x20  ;SPACE
+   15 00000008 4693            MOV              R11, R2
+   16 0000000A         
+   17 0000000A         CLEAR
+   18 0000000A F1BB 0B01       SUBS             R11, #1
+   19 0000000E F800 A00B       STRB             R10, [R0, R11]
+   20 00000012 D1FA            BNE              CLEAR
+   21 00000014         
+   22 00000014         
+   23 00000014 F04F 4C00       LDR              R12, =HIGH_BIT
+   24 00000018 EA01 0B0C       AND              R11, R1, R12
+   25 0000001C 45E3            CMP              R11, R12
+   26 0000001E BF01 F04F 
+              3CFF             LDREQ            R12, =REVERSE
+   27 00000024 EA81 010C       EOREQ            R1, R12
+   28 00000028 3101            ADDEQ            R1, #1
+   29 0000002A F04F 0C01       MOVEQ            R12, #1
+   30 0000002E         
+   31 0000002E F04F 0B0A       MOV              R11, #10
+   32 00000032 46DA            MOV              R10, R11
+   33 00000034 4410            ADD              R0, R2
+   34 00000036         
+   35 00000036         DEGREE
+   36 00000036 F1A0 0001       SUB              R0, #1
+   37 0000003A 4551            CMP              R1, R10
+   38 0000003C BF28 FB0A 
+              FA0B             MULCS            R10, R10, R11
+   39 00000042 D2F8            BCS              DEGREE
+   40 00000044         
+   41 00000044 F1BC 0F01       CMP              R12, #1
+   42 00000048 BF02 3801       SUBEQ            R0, #1
+   43 0000004C 262D            MOVEQ            R6, #0x2D
+   44 0000004E F800 6B01       STRBEQ           R6, [R0], #1
+   45 00000052         CONVERT
+   46 00000052 FBBA FAFB       UDIV             R10, R11
+   47 00000056 FBB1 F5FA       UDIV             R5, R1, R10
+   48 0000005A         
+   49 0000005A F105 0630       ADD              R6, R5, #0x30 ;transformation t
+                                                            o CHAR
+   50 0000005E F800 6B01       STRB             R6, [R0], #1
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   51 00000062 FB05 F50A       MUL              R5, R10
+   52 00000066 EBA1 0105       SUB              R1, R5
+   53 0000006A         
+   54 0000006A F1BA 0F01       CMP              R10, #1
+   55 0000006E D1F0            BNE              CONVERT
+   56 00000070         
+   57 00000070 E8BD 1C60       POP              {R5-R6, R10-R12}
+   58 00000074 4770            BX               LR
+   59 00000076         
+   60 00000076                 ENDP
+   61 00000076         
+   62 00000076         
+   63 00000076         
+   64 00000076         
+   65 00000076         
+   66 00000076         FUNC_Z  PROC
+   67 00000076         
+   68 00000076 EBA0 0001       SUB              R0, R1
+   69 0000007A EA4F 0040       LSL              R0, R0, #1
+   70 0000007E         
+   71 0000007E 4770            BX               LR
+   72 00000080                 ENDP
+   73 00000080         
+   74 00000080         
+   75 00000080                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=.\objects\afun.d -o.\objects\afun.o -I.\RTE\_rgr -IC:\Users\
+don\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include -IC:\Users\don\A
+ppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F
+4xx\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 533
+" --predefine="_RTE_ SETA 1" --predefine="STM32F401xE SETA 1" --predefine="_RTE
+_ SETA 1" --list=.\listings\afun.lst afun.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BIN_CHAR 00000000
+
+Symbol: BIN_CHAR
+   Definitions
+      At line 10 in file afun.s
+   Uses
+      At line 7 in file afun.s
+Comment: BIN_CHAR used once
+CLEAR 0000000A
+
+Symbol: CLEAR
+   Definitions
+      At line 17 in file afun.s
+   Uses
+      At line 20 in file afun.s
+Comment: CLEAR used once
+CONVERT 00000052
+
+Symbol: CONVERT
+   Definitions
+      At line 45 in file afun.s
+   Uses
+      At line 55 in file afun.s
+Comment: CONVERT used once
+DEGREE 00000036
+
+Symbol: DEGREE
+   Definitions
+      At line 35 in file afun.s
+   Uses
+      At line 39 in file afun.s
+Comment: DEGREE used once
+FUNCTION 00000000
+
+Symbol: FUNCTION
+   Definitions
+      At line 6 in file afun.s
+   Uses
+      None
+Comment: FUNCTION unused
+FUNC_Z 00000076
+
+Symbol: FUNC_Z
+   Definitions
+      At line 66 in file afun.s
+   Uses
+      At line 8 in file afun.s
+Comment: FUNC_Z used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+DECIMAL_BASE 0000000A
+
+Symbol: DECIMAL_BASE
+   Definitions
+      At line 1 in file afun.s
+   Uses
+      None
+Comment: DECIMAL_BASE unused
+HIGH_BIT 80000000
+
+Symbol: HIGH_BIT
+   Definitions
+      At line 3 in file afun.s
+   Uses
+      At line 23 in file afun.s
+Comment: HIGH_BIT used once
+REVERSE FFFFFFFF
+
+Symbol: REVERSE
+   Definitions
+      At line 2 in file afun.s
+   Uses
+      At line 26 in file afun.s
+Comment: REVERSE used once
+3 symbols
+344 symbols in table

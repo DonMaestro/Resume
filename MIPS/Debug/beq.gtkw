@@ -1,0 +1,83 @@
+[*]
+[*] GTKWave Analyzer v3.3.108 (w)1999-2020 BSI
+[*] Mon May  3 20:10:04 2021
+[*]
+[dumpfile] "/home/maestro/Documents/KPI/6semestr/SAPR/lab_6/Debug/core.vcd"
+[dumpfile_mtime] "Mon May  3 19:53:02 2021"
+[dumpfile_size] 221338
+[savefile] "/home/maestro/Documents/KPI/6semestr/SAPR/lab_6/Debug/beq.gtkw"
+[timestart] 280000
+[size] 1527 925
+[pos] -333 -168
+*-15.000000 417800 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_core.
+[treeopen] tb_core.m_core.
+[sst_width] 211
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 425
+@28
+tb_core.m_core.mod_regFile.i_clk
+@200
+-next addr
+@22
+tb_core.m_core.rom_im.i_addr[7:0]
+@200
+-reg_instruction
+@22
+tb_core.m_core.r_instruction.o_reg[31:0]
+@200
+-reg File
+@22
+tb_core.m_core.mod_regFile.i_raddr1[4:0]
+tb_core.m_core.mod_regFile.i_raddr2[4:0]
+tb_core.m_core.mod_regFile.o_rdata1[31:0]
+tb_core.m_core.mod_regFile.o_rdata2[31:0]
+@200
+-reg File +3t
+@22
+tb_core.m_core.mod_regFile.i_waddr[4:0]
+tb_core.m_core.mod_regFile.i_wdata[31:0]
+@28
+tb_core.m_core.mod_regFile.i_we
+@200
+-ForwardA-B
+@28
+tb_core.m_core.mux_ForwardA.i_control[1:0]
+tb_core.m_core.mux_ForwardB.i_control[1:0]
+@200
+-ram
+@28
+tb_core.m_core.mod_ram.i_we
+@22
+tb_core.m_core.mod_ram.i_addr[4:0]
+tb_core.m_core.mod_ram.i_data[31:0]
+tb_core.m_core.mod_ram.o_data[31:0]
+@200
+-next pc
+@28
+tb_core.m_core.mod_nextpc.i_Beq
+tb_core.m_core.mod_nextpc.i_J
+@22
+tb_core.m_core.mod_nextpc.i_Imm[25:0]
+tb_core.m_core.mod_nextpc.i_PC[29:0]
+@28
+tb_core.m_core.mod_nextpc.i_zero
+tb_core.m_core.mod_nextpc.o_PCSrc
+@22
+tb_core.m_core.mod_nextpc.o_PC[29:0]
+tb_core.m_core.mod_nextpc.se[29:0]
+@200
+-mux new pc
+@28
+tb_core.m_core.mux_new_pc.i_control
+@22
+tb_core.m_core.mux_new_pc.i_dat0[31:0]
+tb_core.m_core.mux_new_pc.i_dat1[31:0]
+tb_core.m_core.mux_new_pc.o_dat[31:0]
+@200
+-
+@28
+tb_core.m_core.stall
+[pattern_trace] 1
+[pattern_trace] 0
