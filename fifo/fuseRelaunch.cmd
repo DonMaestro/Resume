@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/Project/fifo/tb_fifo_isim_beh.exe" -prj "D:/Project/fifo/tb_fifo_beh.prj" "work.tb_fifo" "work.glbl" 

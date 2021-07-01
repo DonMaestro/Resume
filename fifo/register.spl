@@ -1,0 +1,11 @@
+[Inputs]
+i_clk
+i_rst_n
+i_st_n
+=i_D[0:0]=
+[Outputs]
+=o_Q[0:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel register
+
